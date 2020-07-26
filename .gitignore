@@ -39,6 +39,7 @@ resources/js/
 resources/lang/
 resources/sass/
 resources/views/auth/
+resources/views/components.blade.php
 resources/views/home.blade.php
 resources/views/layouts/
 resources/views/welcome.blade.php
