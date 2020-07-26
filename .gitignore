@@ -35,7 +35,13 @@ package-lock.json
 package.json
 phpunit.xml
 public/
-resources/
+resources/js/
+resources/lang/
+resources/sass/
+resources/views/auth/
+resources/views/home.blade.php
+resources/views/layouts/
+resources/views/welcome.blade.php
 routes/
 server.php
 storage/
