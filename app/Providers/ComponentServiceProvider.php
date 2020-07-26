@@ -6,7 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Blade;
 use App\View\Components\MDC\{
     Button,
-}
+};
 
 class ComponentServiceProvider extends ServiceProvider
 {
