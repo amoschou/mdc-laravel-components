@@ -1,0 +1,24 @@
+@use 'pre';
+
+$primary:    pre.$amethyst-azurite-primary;
+$secondary:  pre.$amethyst-azurite-secondary;
+$background: pre.$amethyst-azurite-background;
+$surface:    pre.$amethyst-azurite-surface;
+$error:      pre.$amethyst-azurite-error;
+
+@use '@material/theme/variables' with (
+    $primary:    $primary,
+    $secondary:  $secondary,
+    $background: $background,
+    $surface:    $surface,
+    $error:      $error,
+);
+
+@use '@material/theme';
+
+@use 'post';
+@use 'mixins';
+
+@include theme.core-styles(color);
+
+@include mixins.styles(color);

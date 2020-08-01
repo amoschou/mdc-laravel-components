@@ -1,0 +1,19 @@
+@use 'constants' as c;
+
+// Theme fonts
+
+@use "@material/typography" with (
+    $styles-headline1: c.$font-alpha,
+    $styles-headline2: c.$font-alpha,
+    $styles-headline3: c.$font-alpha,
+    $styles-headline4: c.$font-alpha,
+    $styles-headline5: c.$font-alpha,
+    $styles-headline6: c.$font-alpha,
+    $styles-subtitle1: c.$font-alpha,
+    $styles-subtitle2: c.$font-alpha,
+    $styles-body1: c.$font-alpha,
+    $styles-body2: c.$font-alpha,
+    $styles-caption: c.$font-alpha,
+    $styles-button: c.$font-alpha,
+    $styles-overline: c.$font-alpha,
+);

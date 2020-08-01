@@ -1,0 +1,46 @@
+@use 'sass:color';
+@use "@material/theme/color-palette" as cp;
+
+// 2014 Material Design palette colours were chosen here, but remember that
+// Material does not restrict this choice.
+
+// Theme colours
+
+// This example theming system provides a choice of four primary colours and
+// two secondary colour. Desaturated colours can be used for dark theme.
+
+// Primary colours
+$ruby: cp.$red-800;
+$saphire: cp.$light-blue-800;
+$amethyst: cp.$purple-800;
+$emerald: cp.$green-800;
+
+// Secondary colours
+$azurite: cp.$blue-a700;
+$crocoite: cp.$orange-a700;
+
+// Primary colours (Desaturated)
+$ruby-desaturated: cp.$red-300;
+$saphire-desaturated: cp.$light-blue-300;
+$amethyst-desaturated: cp.$purple-300;
+$emerald-desaturated: cp.$green-300;
+
+// Secondary colours (Desaturatd)
+$azurite-desaturated: cp.$blue-a200;
+$crocoite-desaturated: cp.$orange-a200;
+
+// Material environmental colours
+$black: #000000;   // Black
+$white: #FFFFFF;   // White, Light background and surface
+$dark: #121212;    // Dark background and surface
+$error: #B00020;   // Material error
+$background: $white;
+$surface: $white;
+$error-desaturated: color.mix($white, $error, 40%); // #CF6679;
+$background-dark: $dark;
+$surface-dark: $dark;
+
+// Theme fonts
+$font-alpha: (
+  font-family: unquote("Source Sans Pro, Roboto, sans-serif")
+);

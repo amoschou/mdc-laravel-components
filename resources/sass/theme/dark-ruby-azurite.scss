@@ -1,0 +1,33 @@
+@use 'sass:color';
+@use 'pre';
+
+$primary:    pre.$dark-ruby-azurite-primary;
+$secondary:  pre.$dark-ruby-azurite-secondary;
+$background: pre.$dark-ruby-azurite-background;
+$surface:    pre.$dark-ruby-azurite-surface;
+$error:      pre.$dark-ruby-azurite-error;
+
+@use '@material/theme/variables' with (
+    $primary:    $primary,
+    $secondary:  $secondary,
+    $background: $background,
+    $surface:    $surface,
+    $error:      $error,
+);
+
+@use 'post';
+@use 'mixins';
+
+.theme-dark-ruby-azurite {
+    @include mixins.common-theme-work(
+        $primary:    $primary,
+        $secondary:  $secondary,
+        $background: $background,
+        $surface:    $surface,
+        $error:      $error,
+    );
+    
+    .theme-branded-surface {
+        background-color: color.mix($primary, pre.$surface-dark, 8%);
+    }
+}

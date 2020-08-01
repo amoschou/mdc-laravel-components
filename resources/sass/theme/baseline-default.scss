@@ -1,0 +1,20 @@
+@use 'pre';
+
+$primary:    pre.$baseline-default-primary;
+$secondary:  pre.$baseline-default-secondary;
+$background: pre.$baseline-default-background;
+$surface:    pre.$baseline-default-surface;
+$error:      pre.$baseline-default-error;
+
+@use '@material/theme/variables' with (
+    $primary:    $primary,
+    $secondary:  $secondary,
+    $background: $background,
+    $surface:    $surface,
+    $error:      $error,
+);
+
+@use 'post';
+@use 'mixins';
+
+@include mixins.styles;

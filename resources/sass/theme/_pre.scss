@@ -1,0 +1,122 @@
+@use 'constants' as c;
+
+// The baseline Material color theme
+
+$baseline-default-primary: #6200EE;
+$baseline-default-primary-variant: #3700B3;
+$baseline-default-secondary: #03DAC6;
+$baseline-default-secondary-variant: #018786;
+$baseline-default-background: c.$white;
+$baseline-default-surface: c.$white;
+$baseline-default-error: c.$error;
+
+$baseline-dark-primary: #BB86FC;
+$baseline-dark-primary-variant: $baseline-default-primary-variant;
+$baseline-dark-secondary: $baseline-default-secondary;
+$baseline-dark-secondary-variant: $baseline-dark-secondary; // There is no secondary variant in dark theme, make it identical to secondary
+$baseline-dark-background: c.$background-dark;
+$baseline-dark-surface: c.$surface-dark;
+$baseline-dark-error: c.$error-desaturated;
+
+// Generic colours
+
+$surface-dark: c.$surface-dark;
+
+// Theme colours
+
+$amethyst-azurite-primary: c.$amethyst;
+$amethyst-azurite-secondary: c.$azurite;
+$amethyst-azurite-background: c.$white;
+$amethyst-azurite-surface: c.$white;
+$amethyst-azurite-error: c.$error;
+
+$emerald-azurite-primary: c.$emerald;
+$emerald-azurite-secondary: c.$azurite;
+$emerald-azurite-background: c.$white;
+$emerald-azurite-surface: c.$white;
+$emerald-azurite-error: c.$error;
+
+$ruby-azurite-primary: c.$ruby;
+$ruby-azurite-secondary: c.$azurite;
+$ruby-azurite-background: c.$white;
+$ruby-azurite-surface: c.$white;
+$ruby-azurite-error: c.$error;
+
+$saphire-azurite-primary: c.$saphire;
+$saphire-azurite-secondary: c.$azurite;
+$saphire-azurite-background: c.$white;
+$saphire-azurite-surface: c.$white;
+$saphire-azurite-error: c.$error;
+
+$amethyst-crocoite-primary: c.$amethyst;
+$amethyst-crocoite-secondary: c.$crocoite;
+$amethyst-crocoite-background: c.$white;
+$amethyst-crocoite-surface: c.$white;
+$amethyst-crocoite-error: c.$error;
+
+$emerald-crocoite-primary: c.$emerald;
+$emerald-crocoite-secondary: c.$crocoite;
+$emerald-crocoite-background: c.$white;
+$emerald-crocoite-surface: c.$white;
+$emerald-crocoite-error: c.$error;
+
+$ruby-crocoite-primary: c.$ruby;
+$ruby-crocoite-secondary: c.$crocoite;
+$ruby-crocoite-background: c.$white;
+$ruby-crocoite-surface: c.$white;
+$ruby-crocoite-error: c.$error;
+
+$saphire-crocoite-primary: c.$saphire;
+$saphire-crocoite-secondary: c.$crocoite;
+$saphire-crocoite-background: c.$white;
+$saphire-crocoite-surface: c.$white;
+$saphire-crocoite-error: c.$error;
+
+// Dark theme colours
+$dark-amethyst-azurite-primary: c.$amethyst-desaturated;
+$dark-amethyst-azurite-secondary: c.$azurite-desaturated;
+$dark-amethyst-azurite-background: c.$background-dark;
+$dark-amethyst-azurite-surface: c.$surface-dark;
+$dark-amethyst-azurite-error: c.$error-desaturated;
+
+$dark-emerald-azurite-primary: c.$emerald-desaturated;
+$dark-emerald-azurite-secondary: c.$azurite-desaturated;
+$dark-emerald-azurite-background: c.$background-dark;
+$dark-emerald-azurite-surface: c.$surface-dark;
+$dark-emerald-azurite-error: c.$error-desaturated;
+
+$dark-ruby-azurite-primary: c.$ruby-desaturated;
+$dark-ruby-azurite-secondary: c.$azurite-desaturated;
+$dark-ruby-azurite-background: c.$background-dark;
+$dark-ruby-azurite-surface: c.$surface-dark;
+$dark-ruby-azurite-error: c.$error-desaturated;
+
+$dark-saphire-azurite-primary: c.$saphire-desaturated;
+$dark-saphire-azurite-secondary: c.$azurite-desaturated;
+$dark-saphire-azurite-background: c.$background-dark;
+$dark-saphire-azurite-surface: c.$surface-dark;
+$dark-saphire-azurite-error: c.$error-desaturated;
+
+$dark-amethyst-crocoite-primary: c.$amethyst-desaturated;
+$dark-amethyst-crocoite-secondary: c.$crocoite-desaturated;
+$dark-amethyst-crocoite-background: c.$background-dark;
+$dark-amethyst-crocoite-surface: c.$surface-dark;
+$dark-amethyst-crocoite-error: c.$error-desaturated;
+
+$dark-emerald-crocoite-primary: c.$emerald-desaturated;
+$dark-emerald-crocoite-secondary: c.$crocoite-desaturated;
+$dark-emerald-crocoite-background: c.$background-dark;
+$dark-emerald-crocoite-surface: c.$surface-dark;
+$dark-emerald-crocoite-error: c.$error-desaturated;
+
+$dark-ruby-crocoite-primary: c.$ruby-desaturated;
+$dark-ruby-crocoite-secondary: c.$crocoite-desaturated;
+$dark-ruby-crocoite-background: c.$background-dark;
+$dark-ruby-crocoite-surface: c.$surface-dark;
+$dark-ruby-crocoite-error: c.$error-desaturated;
+
+$dark-saphire-crocoite-primary: c.$saphire-desaturated;
+$dark-saphire-crocoite-secondary: c.$crocoite-desaturated;
+$dark-saphire-crocoite-background: c.$background-dark;
+$dark-saphire-crocoite-surface: c.$surface-dark;
+$dark-saphire-crocoite-error: c.$error-desaturated;

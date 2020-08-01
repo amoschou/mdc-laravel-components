@@ -1,0 +1,33 @@
+@use 'sass:color';
+@use 'pre';
+
+$primary:    pre.$dark-ruby-crocoite-primary;
+$secondary:  pre.$dark-ruby-crocoite-secondary;
+$background: pre.$dark-ruby-crocoite-background;
+$surface:    pre.$dark-ruby-crocoite-surface;
+$error:      pre.$dark-ruby-crocoite-error;
+
+@use '@material/theme/variables' with (
+    $primary:    $primary,
+    $secondary:  $secondary,
+    $background: $background,
+    $surface:    $surface,
+    $error:      $error,
+);
+
+@use 'post';
+@use 'mixins';
+
+.theme-dark-ruby-crocoite {
+    @include mixins.common-theme-work(
+        $primary:    $primary,
+        $secondary:  $secondary,
+        $background: $background,
+        $surface:    $surface,
+        $error:      $error,
+    );
+    
+    .theme-branded-surface {
+        background-color: color.mix($primary, pre.$surface-dark, 8%);
+    }
+}

@@ -1,0 +1,28 @@
+@use 'pre';
+
+$primary:    pre.$saphire-azurite-primary;
+$secondary:  pre.$saphire-azurite-secondary;
+$background: pre.$saphire-azurite-background;
+$surface:    pre.$saphire-azurite-surface;
+$error:      pre.$saphire-azurite-error;
+
+@use '@material/theme/variables' with (
+    $primary:    $primary,
+    $secondary:  $secondary,
+    $background: $background,
+    $surface:    $surface,
+    $error:      $error,
+);
+
+@use 'post';
+@use 'mixins';
+
+.theme-saphire-azurite {
+    @include mixins.common-theme-work(
+        $primary:    $primary,
+        $secondary:  $secondary,
+        $background: $background,
+        $surface:    $surface,
+        $error:      $error,
+    );
+}

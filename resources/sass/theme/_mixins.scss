@@ -1,0 +1,114 @@
+@use 'sass:map';
+@use "constants" as c;
+@use "@material/button";
+@use "@material/checkbox";
+@use "@material/drawer";
+@use "@material/list";
+@use '@material/feature-targeting'; // used in theme-core-styles
+@use "@material/form-field";
+@use "@material/icon-button";
+@use '@material/theme/theme-color' as theme-color; // In a later version, this will be known as @material/theme/theme-color
+@use '@material/theme';
+@use 'fix-top-app-bar' as top-app-bar; // Top app bar does not have its own core-styles() so we apply a fix to work here.
+@use "@material/typography";
+
+@mixin styles(
+    $query: feature-targeting.all()) {
+    @include button.core-styles($query);
+    @include checkbox.core-styles($query);
+    @include drawer.core-styles($query);
+    @include drawer.dismissible-core-styles($query);
+    @include drawer.modal-core-styles($query);
+    @include form-field.core-styles($query);
+    @include icon-button.core-styles($query);
+    @include list.core-styles($query);
+    @include theme.core-styles($query);
+    @include top-app-bar.core-styles($query);
+    @include typography.core-styles($query);
+}
+
+// Adapted from core-styles() of /packages/mdc-theme/_theme.scss by removing
+// the :root {} wrapper
+@mixin theme-core-styles(
+    $property-values,
+    $query: feature-targeting.all()
+) {
+    $feat-color: feature-targeting.create-target($query, color);
+
+    // :root {
+        @include feature-targeting.targets($feat-color) {
+            @each $style in map.keys($property-values) {
+                --mdc-theme-#{$style}: #{map.get($property-values, $style)};
+            }
+        }
+    // }
+  
+    @each $style in map.keys($property-values) {
+        @if $style != "background" and $style != "surface" {
+            .mdc-theme--#{$style} {
+                @include feature-targeting.targets($feat-color) {
+                    @include theme.prop(color, $style, true);
+                }
+            }
+        } @else {
+            .mdc-theme--#{$style} {
+                @include feature-targeting.targets($feat-color) {
+                    @include theme.prop(background-color, $style);
+                }
+            }
+        }
+    }
+  
+    // CSS rules for using primary and secondary (plus light/dark variants) as background colors.
+    @each $style in ("primary", "secondary") {
+        .mdc-theme--#{$style}-bg {
+            @include feature-targeting.targets($feat-color) {
+                @include theme.prop(background-color, $style, true);
+            }
+        }
+    }
+}
+
+@mixin common-theme-work(
+    $primary,
+    $secondary,
+    $background,
+    $surface,
+    $error
+) {
+    $on-primary:   if(theme-color.contrast-tone($primary) == "dark", c.$black, c.$white);
+    $on-secondary: if(theme-color.contrast-tone($secondary) == "dark", c.$black, c.$white);
+    $on-surface:   if(theme-color.contrast-tone($surface) == "dark", c.$black, c.$white);
+    $on-error:     if(theme-color.contrast-tone($error) == "dark", c.$black, c.$white);
+
+    $property-values: (
+        primary:                      $primary,
+        secondary:                    $secondary,
+        background:                   $background,
+        surface:                      $surface,
+        error:                        $error,
+        on-primary:                   $on-primary,
+        on-secondary:                 $on-secondary,
+        on-surface:                   $on-surface,
+        on-error:                     $on-error,
+        text-primary-on-background:   ink-color-for-fill_(primary, $background),
+        text-secondary-on-background: ink-color-for-fill_(secondary, $background),
+        text-hint-on-background:      ink-color-for-fill_(hint, $background),
+        text-disabled-on-background:  ink-color-for-fill_(disabled, $background),
+        text-icon-on-background:      ink-color-for-fill_(icon, $background),
+        text-primary-on-light:        ink-color-for-fill_(primary, light),
+        text-secondary-on-light:      ink-color-for-fill_(secondary, light),
+        text-hint-on-light:           ink-color-for-fill_(hint, light),
+        text-disabled-on-light:       ink-color-for-fill_(disabled, light),
+        text-icon-on-light:           ink-color-for-fill_(icon, light),
+        text-primary-on-dark:         ink-color-for-fill_(primary, dark),
+        text-secondary-on-dark:       ink-color-for-fill_(secondary, dark),
+        text-hint-on-dark:            ink-color-for-fill_(hint, dark),
+        text-disabled-on-dark:        ink-color-for-fill_(disabled, dark),
+        text-icon-on-dark:            ink-color-for-fill_(icon, dark)
+    );
+
+    @include theme-core-styles($property-values);
+
+    @include styles(color);
+}

@@ -1,0 +1,25 @@
+@use 'sass:color';
+@use 'pre';
+
+$primary:    pre.$baseline-dark-primary;
+$secondary:  pre.$baseline-dark-secondary;
+$background: pre.$baseline-dark-background;
+$surface:    pre.$baseline-dark-surface;
+$error:      pre.$baseline-dark-error;
+
+@use '@material/theme/variables' with (
+    $primary:    $primary,
+    $secondary:  $secondary,
+    $background: $background,
+    $surface:    $surface,
+    $error:      $error,
+);
+
+@use 'post';
+@use 'mixins';
+
+@include mixins.styles;
+
+.theme-branded-surface {
+    background-color: color.mix($primary, pre.$surface-dark, 8%);
+}

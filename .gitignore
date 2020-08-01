@@ -35,17 +35,21 @@ package-lock.json
 package.json
 phpunit.xml
 public/
-resources/js/
+resources/js/components
+resources/js/app.js
+resources/js/bootstrap.js
 resources/lang/
-resources/sass/
+resources/sass/_variables.scss
+resources/sass/app.scss
 resources/views/auth/
-resources/views/components.blade.php
 resources/views/home.blade.php
 resources/views/layouts/
 resources/views/welcome.blade.php
-routes/
+routes/api.php
+routes/channels.php
+routes/console.php
+routes/web.php
 server.php
 storage/
 tests/
-webpack.mix.js
 

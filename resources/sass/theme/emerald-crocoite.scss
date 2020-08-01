@@ -1,0 +1,28 @@
+@use 'pre';
+
+$primary:    pre.$emerald-crocoite-primary;
+$secondary:  pre.$emerald-crocoite-secondary;
+$background: pre.$emerald-crocoite-background;
+$surface:    pre.$emerald-crocoite-surface;
+$error:      pre.$emerald-crocoite-error;
+
+@use '@material/theme/variables' with (
+    $primary:    $primary,
+    $secondary:  $secondary,
+    $background: $background,
+    $surface:    $surface,
+    $error:      $error,
+);
+
+@use 'post';
+@use 'mixins';
+
+.theme-emerald-crocoite {
+    @include mixins.common-theme-work(
+        $primary:    $primary,
+        $secondary:  $secondary,
+        $background: $background,
+        $surface:    $surface,
+        $error:      $error,
+    );
+}

@@ -1,0 +1,28 @@
+@use 'pre';
+
+$primary:    pre.$ruby-crocoite-primary;
+$secondary:  pre.$ruby-crocoite-secondary;
+$background: pre.$ruby-crocoite-background;
+$surface:    pre.$ruby-crocoite-surface;
+$error:      pre.$ruby-crocoite-error;
+
+@use '@material/theme/variables' with (
+    $primary:    $primary,
+    $secondary:  $secondary,
+    $background: $background,
+    $surface:    $surface,
+    $error:      $error,
+);
+
+@use 'post';
+@use 'mixins';
+
+.theme-ruby-crocoite {
+    @include mixins.common-theme-work(
+        $primary:    $primary,
+        $secondary:  $secondary,
+        $background: $background,
+        $surface:    $surface,
+        $error:      $error,
+    );
+}
