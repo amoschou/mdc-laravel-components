@@ -1,5 +1,6 @@
 @php
   $classFixedAdjust = 'mdc-top-app-bar-'.($dense ? '-dense' : '').($prominent ? '-prominent' : '').'-fixed-adjust';
+  $themeWrapperClass = $attributes['themeWrapperClass'];
   $frameContext = [
     'type' => $type,
     'subType' => $subType,
@@ -7,6 +8,7 @@
     'prominent' => $prominent,
     'dense' => $dense,
     'fixed' => $fixed,
+    'themeWrapperClass' => $themeWrapperClass
   ];
 @endphp
 
@@ -15,24 +17,36 @@
   <div class="mdc-drawer-scrim"></div>
   <div id="frame::{{ $id }}::main">
     @include('components.app.top-app-bar', $frameContext)
-    <div class="{{ $classFixedAdjust }}"></div>
-    <div class="mdc-layout-grid mdc-layout-grid--padding-top-0">
-      <div class="mdc-layout-grid__inner">
-        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">{{ $slot }}</div>
+      <div class="{{ $classFixedAdjust }}"></div>
+      <div class="mdc-layout-grid mdc-layout-grid--padding-top-0">
+        <div class="mdc-layout-grid__inner">
+          <div class="
+            mdc-layout-grid__cell
+            mdc-layout-grid__cell--span-12-desktop
+            mdc-layout-grid__cell--span-8-tablet
+            mdc-layout-grid__cell--span-4-phone
+          ">{{ $slot }}</div>
+        </div>
       </div>
-    </div>
   </div>
 @endif
 
 @if($type === 'dismissible' && $subType === 'full-height-drawer')
   @include('components.app.drawer', $frameContext)
-  <div class="mdc-drawer-app-content">
-    @include('components.app.top-app-bar', array_merge($frameContext, ['class' => 'app-bar']))
+  <div class="mdc-drawer-app-content"> {{-- .mdc-drawer-app-content must be applied to the sibling after the drawer --}}
+    {{-- <div class="{{ $themeWrapperClass }}"> --}}
+      @include('components.app.top-app-bar', array_merge($frameContext, ['class' => 'app-bar']))
+    {{-- </div> --}}
     <main class="main-content" id="frame::{{ $id }}::main">
       <div class="{{ $classFixedAdjust }}">
         <div class="mdc-layout-grid mdc-layout-grid--padding-top-0">
           <div class="mdc-layout-grid__inner">
-            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">{{ $slot }}</div>
+            <div class="
+              mdc-layout-grid__cell
+              mdc-layout-grid__cell--span-12-desktop
+              mdc-layout-grid__cell--span-8-tablet
+              mdc-layout-grid__cell--span-4-phone
+            ">{{ $slot }}</div>
           </div>
         </div>
       </div>
@@ -47,62 +61,42 @@
     <main class="main-content" id="frame::{{ $id }}::main">
       <div class="mdc-layout-grid mdc-layout-grid--padding-top-0">
         <div class="mdc-layout-grid__inner">
-          <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">{{ $slot }}</div>
+          <div class="
+            mdc-layout-grid__cell
+            mdc-layout-grid__cell--span-12-desktop
+            mdc-layout-grid__cell--span-8-tablet
+            mdc-layout-grid__cell--span-4-phone
+          ">{{ $slot }}</div>
         </div>
       </div>
     </main>
   </div>
 @endif
 
-@if($type === '' || $type === 'standard')
-  @include('components.app.drawer', $frameContext)
-  @include('components.app.top-app-bar', $frameContext)
-  <div class="mdc-layout-grid mdc-layout-grid--padding-top-0">
-    <div class="mdc-layout-grid__inner">
-      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">{{ $slot }}</div>
+{{--
+  @if($type === '' || $type === 'standard')
+    @include('components.app.drawer', $frameContext)
+    @include('components.app.top-app-bar', $frameContext)
+    <div class="mdc-layout-grid mdc-layout-grid--padding-top-0">
+      <div class="mdc-layout-grid__inner">
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">{{ $slot }}</div>
+      </div>
     </div>
-  </div>
-@endif
-
+  @endif
+--}}
 
 @push('styles')
-  <style>
-    .mdc-layout-grid--padding-top-0 {
-      padding-top: 0px;
-    }
-
     @if($type === 'dismissible')
-      body {
-        display: flex;
-        height: 100vh;
-      }
-
-      .mdc-drawer-app-content {
-        flex: auto;
-        overflow: auto;
-        position: relative;
-      }
-
-      .main-content {
-        overflow: auto;
-        height: 100%;
-      }
-
-      .app-bar {
-        position: absolute;
-      }
-
-      @if($subType === 'below-top-app-bar')
-        .mdc-top-app-bar {
-          z-index: 7;
-        }
-      @endif
+        <link
+            rel="stylesheet"
+            href="{!! route('css.frame', [
+                'id' => "frame::{$id}",
+                'type' => $type,
+                'subType' => $subType
+            ]) !!}"
+        >
     @endif
-  </style>
 @endpush
-
-
-
 
 
 @push('scripts')

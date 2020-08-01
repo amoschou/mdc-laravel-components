@@ -18,11 +18,9 @@
     <div class="mdc-drawer__header">
       <h3 class="mdc-drawer__title">{{ $title }}</h3>
       <h6 class="mdc-drawer__subtitle">{{ $subtitle }}</h6>
-      {{ $header }}
     </div>
   @endif
   <div class="mdc-drawer__content">
     {{ $slot }}
   </div>
 </aside>
-
