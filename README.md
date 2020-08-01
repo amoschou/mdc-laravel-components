@@ -7,3 +7,11 @@
 This project implements Material Components for the web using [Laravel](https://laravel.com)’s [Blade templates](https://laravel.com/docs/7.x/blade).
 
 It also presents a rudimentary theming solution.
+
+## Installation
+
+Copy these files into a Laravel installation and change the following files:
+
+* Add the element `App\Providers\ComponentServiceProvider::class` to the `providers` array in `config/app.php`.
+* Add the line `include base_path('routes/web-routes.php');` to `routes/web.php`.
+
