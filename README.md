@@ -14,3 +14,12 @@ Copy these files into a Laravel installation and change the following files:
 
 * Add the element `App\Providers\ComponentServiceProvider::class` to the `providers` array in `config/app.php`.
 * Add the line `include base_path('routes/web-routes.php');` to `routes/web.php`.
+
+## Copyright and license
+
+This package is licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+* Copyright (c) 2014-2020 Google, Inc.
+* © Andrew Moschou 2020
+
+Material from Google is marked as such in the relevant files.
