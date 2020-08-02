@@ -6,7 +6,7 @@ $background: pre.$amethyst-azurite-background;
 $surface:    pre.$amethyst-azurite-surface;
 $error:      pre.$amethyst-azurite-error;
 
-@use '@material/theme/variables' with (
+@use '@material/theme/theme-color' with (
     $primary:    $primary,
     $secondary:  $secondary,
     $background: $background,

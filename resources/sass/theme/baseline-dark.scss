@@ -7,7 +7,7 @@ $background: pre.$baseline-dark-background;
 $surface:    pre.$baseline-dark-surface;
 $error:      pre.$baseline-dark-error;
 
-@use '@material/theme/variables' with (
+@use '@material/theme/theme-color' with (
     $primary:    $primary,
     $secondary:  $secondary,
     $background: $background,

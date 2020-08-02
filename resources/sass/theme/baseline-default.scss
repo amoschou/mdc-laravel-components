@@ -6,7 +6,7 @@ $background: pre.$baseline-default-background;
 $surface:    pre.$baseline-default-surface;
 $error:      pre.$baseline-default-error;
 
-@use '@material/theme/variables' with (
+@use '@material/theme/theme-color' with (
     $primary:    $primary,
     $secondary:  $secondary,
     $background: $background,

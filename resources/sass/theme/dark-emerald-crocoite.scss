@@ -7,7 +7,7 @@ $background: pre.$dark-emerald-crocoite-background;
 $surface:    pre.$dark-emerald-crocoite-surface;
 $error:      pre.$dark-emerald-crocoite-error;
 
-@use '@material/theme/variables' with (
+@use '@material/theme/theme-color' with (
     $primary:    $primary,
     $secondary:  $secondary,
     $background: $background,
@@ -18,7 +18,8 @@ $error:      pre.$dark-emerald-crocoite-error;
 @use 'post';
 @use 'mixins';
 
-.theme-dark-emerald-crocoite {
+.theme-dark-emerald-crocoite.theme-level-1,
+.theme-dark-emerald-crocoite.theme-level-1.theme-level-2 {
     @include mixins.common-theme-work(
         $primary:    $primary,
         $secondary:  $secondary,

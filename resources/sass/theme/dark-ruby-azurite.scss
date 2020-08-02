@@ -7,7 +7,7 @@ $background: pre.$dark-ruby-azurite-background;
 $surface:    pre.$dark-ruby-azurite-surface;
 $error:      pre.$dark-ruby-azurite-error;
 
-@use '@material/theme/variables' with (
+@use '@material/theme/theme-color' with (
     $primary:    $primary,
     $secondary:  $secondary,
     $background: $background,
@@ -18,7 +18,8 @@ $error:      pre.$dark-ruby-azurite-error;
 @use 'post';
 @use 'mixins';
 
-.theme-dark-ruby-azurite {
+.theme-dark-ruby-azurite.theme-level-1,
+.theme-dark-ruby-azurite.theme-level-1.theme-level-2 {
     @include mixins.common-theme-work(
         $primary:    $primary,
         $secondary:  $secondary,

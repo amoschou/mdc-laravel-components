@@ -6,7 +6,7 @@ $background: pre.$amethyst-crocoite-background;
 $surface:    pre.$amethyst-crocoite-surface;
 $error:      pre.$amethyst-crocoite-error;
 
-@use '@material/theme/variables' with (
+@use '@material/theme/theme-color' with (
     $primary:    $primary,
     $secondary:  $secondary,
     $background: $background,
@@ -19,7 +19,8 @@ $error:      pre.$amethyst-crocoite-error;
 @use 'post';
 @use 'mixins';
 
-.theme-amethyst-crocoite {
+.theme-amethyst-crocoite.theme-level-1,
+.theme-amethyst-crocoite.theme-level-1.theme-level-2 {
     @include mixins.common-theme-work(
         $primary:    $primary,
         $secondary:  $secondary,

@@ -12,23 +12,25 @@
                 @include('demos.' . $c)
             @endforeach
         </div>
+
         <div class="
             mdc-layout-grid__cell
             mdc-layout-grid__cell--span-4-desktop
             mdc-layout-grid__cell--span-2-tablet
             mdc-layout-grid__cell--span-4-phone
-            {{ App\Helpers\Theme::wrapperClass(App\Helpers\Theme::generateRandomTheme()) }}
+            {{ App\Helpers\Theme::wrapperClass(App\Helpers\Theme::generateRandomTheme()) }} theme-level-1 theme-level-2
         ">
             @foreach($component as $c)
                 @include('demos.' . $c)
             @endforeach
         </div>
+
         <div class="
             mdc-layout-grid__cell
             mdc-layout-grid__cell--span-4-desktop
             mdc-layout-grid__cell--span-2-tablet
             mdc-layout-grid__cell--span-4-phone
-            {{ App\Helpers\Theme::wrapperClass(App\Helpers\Theme::generateRandomTheme()) }}
+            {{ App\Helpers\Theme::wrapperClass(App\Helpers\Theme::generateRandomTheme()) }} theme-level-1 theme-level-2
         ">
             @foreach($component as $c)
                 @include('demos.' . $c)

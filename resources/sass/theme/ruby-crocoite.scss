@@ -6,7 +6,7 @@ $background: pre.$ruby-crocoite-background;
 $surface:    pre.$ruby-crocoite-surface;
 $error:      pre.$ruby-crocoite-error;
 
-@use '@material/theme/variables' with (
+@use '@material/theme/theme-color' with (
     $primary:    $primary,
     $secondary:  $secondary,
     $background: $background,
@@ -17,7 +17,8 @@ $error:      pre.$ruby-crocoite-error;
 @use 'post';
 @use 'mixins';
 
-.theme-ruby-crocoite {
+.theme-ruby-crocoite.theme-level-1,
+.theme-ruby-crocoite.theme-level-1.theme-level-2 {
     @include mixins.common-theme-work(
         $primary:    $primary,
         $secondary:  $secondary,

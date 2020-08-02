@@ -7,7 +7,7 @@ $background: pre.$dark-saphire-azurite-background;
 $surface:    pre.$dark-saphire-azurite-surface;
 $error:      pre.$dark-saphire-azurite-error;
 
-@use '@material/theme/variables' with (
+@use '@material/theme/theme-color' with (
     $primary:    $primary,
     $secondary:  $secondary,
     $background: $background,
@@ -18,7 +18,8 @@ $error:      pre.$dark-saphire-azurite-error;
 @use 'post';
 @use 'mixins';
 
-.theme-dark-saphire-azurite {
+.theme-dark-saphire-azurite.theme-level-1,
+theme-dark-saphire-azurite.theme-level-1.theme-level-2 {
     @include mixins.common-theme-work(
         $primary:    $primary,
         $secondary:  $secondary,

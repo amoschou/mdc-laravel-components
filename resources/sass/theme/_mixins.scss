@@ -13,7 +13,8 @@
 @use "@material/typography";
 
 @mixin styles(
-    $query: feature-targeting.all()) {
+    $query: feature-targeting.all()
+) {
     @include button.core-styles($query);
     @include checkbox.core-styles($query);
     @include drawer.core-styles($query);
