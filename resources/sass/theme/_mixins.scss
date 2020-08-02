@@ -1,72 +1,97 @@
 @use 'sass:map';
 @use "constants" as c;
+@use '@material/base/mixins' as base-mixins;
 @use "@material/button";
+@use "@material/card";
 @use "@material/checkbox";
+@use "@material/chips/trailingaction" as chips-trailingaction;
+@use "@material/chips";
+@use "@material/circular-progress";
+@use "@material/data-table/data-table";
+@use "@material/dialog";
 @use "@material/drawer";
-@use "@material/list";
-@use '@material/feature-targeting'; // used in theme-core-styles
+@use "@material/elevation";
+@use "@material/fab";
+@use '@material/feature-targeting';
+@use "@material/floating-label";
 @use "@material/form-field";
 @use "@material/icon-button";
-@use '@material/theme/theme-color' as theme-color; // In a later version, this will be known as @material/theme/theme-color
-@use '@material/theme';
-@use 'fix-top-app-bar' as top-app-bar; // Top app bar does not have its own core-styles() so we apply a fix to work here.
+@use "@material/image-list";
+// @use "@material/layout-grid"; // Layout grid has no core-styles(), and this is handled elsewhere.
+@use "@material/line-ripple";
+@use "@material/linear-progress";
+@use "@material/list";
+@use "@material/menu";
+@use "@material/menu-surface";
+@use "@material/notched-outline";
+@use "@material/radio";
+@use "@material/ripple";
+@use "@material/select/select";
+@use "@material/slider/slider";
+@use "@material/snackbar";
+@use "@material/switch";
+@use "@material/tab";
+@use "@material/tab-bar";
+@use "@material/tab-indicator";
+@use "@material/tab-scroller";
+@use "@material/textfield";
+@use "@material/theme/theme-color";
+// @use "@material/theme" as theme;
+@use "fix-theme" as theme;
+@use "@material/tooltip/tooltip";
+@use "fix-top-app-bar" as top-app-bar; // Top app bar does not have its own core-styles() so we apply a fix to work here.
 @use "@material/typography";
 
 @mixin styles(
     $query: feature-targeting.all()
 ) {
     @include button.core-styles($query);
+    @include card.core-styles($query);
     @include checkbox.core-styles($query);
+    @include chips-trailingaction.core-styles($query);
+    @include chips.core-styles($query);
+    @include chips.set-core-styles($query);
+    @include circular-progress.core-styles($query);
+    @include data-table.core-styles($query);
+    @include data-table.theme-baseline($query);
+    @include dialog.core-styles($query);
     @include drawer.core-styles($query);
     @include drawer.dismissible-core-styles($query);
     @include drawer.modal-core-styles($query);
+    @include elevation.core-styles($query);
+    @include fab.core-styles($query);
+    @include base-mixins.emit-once('mdc-floating-label') {
+        @include floating-label.core-styles($query);
+    }
     @include form-field.core-styles($query);
     @include icon-button.core-styles($query);
+    @include image-list.core-styles($query);
+    // Layout grid is handled elsewhere.
+    @include base-mixins.emit-once('mdc-line-ripple') {
+        @include line-ripple.core-styles($query);
+    }
+    @include linear-progress.core-styles($query);
     @include list.core-styles($query);
+    @include menu.core-styles($query);
+    @include menu-surface.core-styles($query);
+    @include base-mixins.emit-once('mdc-notched-outline') {
+        @include notched-outline.core-styles($query);
+    }
+    @include radio.core-styles($query);
+    @include ripple.common($query);
+    @include ripple.core-styles($query);
+    @include select.core-styles($query);
+    @include slider.core-styles($query);
+    @include snackbar.core-styles($query);
+    @include switch.core-styles($query);
+    @include tab.core-styles($query);
+    @include tab-bar.core-styles($query);
+    @include tab-indicator.core-styles($query);
+    @include tab-scroller.core-styles($query);
+    @include textfield.core-styles($query);
+    @include tooltip.core-styles($query); 
     @include top-app-bar.core-styles($query);
     @include typography.core-styles($query);
-}
-
-// Adapted from core-styles() of /packages/mdc-theme/_theme.scss by using
-// SASS’s parent selector (&).
-@mixin theme-core-styles(
-    $property-values,
-    $query: feature-targeting.all()
-) {
-    $feat-color: feature-targeting.create-target($query, color);
-
-    & {
-        @include feature-targeting.targets($feat-color) {
-            @each $style in map.keys($property-values) {
-                --mdc-theme-#{$style}: #{map.get($property-values, $style)};
-            }
-        }
-    }
-  
-    @each $style in map.keys($property-values) {
-        @if $style != "background" and $style != "surface" {
-            &.mdc-theme--#{$style} {
-                @include feature-targeting.targets($feat-color) {
-                    @include theme.prop(color, $style, true);
-                }
-            }
-        } @else {
-            &.mdc-theme--#{$style} {
-                @include feature-targeting.targets($feat-color) {
-                    @include theme.prop(background-color, $style);
-                }
-            }
-        }
-    }
-  
-    // CSS rules for using primary and secondary (plus light/dark variants) as background colors.
-    @each $style in ("primary", "secondary") {
-        &.mdc-theme--#{$style}-bg {
-            @include feature-targeting.targets($feat-color) {
-                @include theme.prop(background-color, $style, true);
-            }
-        }
-    }
 }
 
 @mixin common-theme-work(
@@ -80,7 +105,6 @@
     $on-secondary: if(theme-color.contrast-tone($secondary) == "dark", c.$black, c.$white);
     $on-surface:   if(theme-color.contrast-tone($surface) == "dark", c.$black, c.$white);
     $on-error:     if(theme-color.contrast-tone($error) == "dark", c.$black, c.$white);
-
     $property-values: (
         primary:                      $primary,
         secondary:                    $secondary,
@@ -108,7 +132,7 @@
         text-icon-on-dark:            theme-color.ink-color-for-fill_(icon, dark)
     );
 
-    @include theme-core-styles($property-values);
+    @include theme.core-styles($property-values, color);
 
     @include styles(color);
 }
