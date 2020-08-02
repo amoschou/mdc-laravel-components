@@ -1,46 +1,49 @@
+// Content in this file is derived and inspired from
+// material-components-web and @material/theme/_theme-color.scss (Google).
+
 @use 'sass:map';
-@use "constants" as c;
+@use 'constants' as c;
 @use '@material/base/mixins' as base-mixins;
-@use "@material/button";
-@use "@material/card";
-@use "@material/checkbox";
-@use "@material/chips/trailingaction" as chips-trailingaction;
-@use "@material/chips";
-@use "@material/circular-progress";
-@use "@material/data-table/data-table";
-@use "@material/dialog";
-@use "@material/drawer";
-@use "@material/elevation";
-@use "@material/fab";
+@use '@material/button';
+@use '@material/card';
+@use '@material/checkbox';
+@use '@material/chips/trailingaction' as chips-trailingaction;
+@use '@material/chips';
+@use '@material/circular-progress';
+@use '@material/data-table/data-table';
+@use '@material/dialog';
+@use '@material/drawer';
+@use '@material/elevation';
+@use '@material/fab';
 @use '@material/feature-targeting';
-@use "@material/floating-label";
-@use "@material/form-field";
-@use "@material/icon-button";
-@use "@material/image-list";
-// @use "@material/layout-grid"; // Layout grid has no core-styles(), and this is handled elsewhere.
-@use "@material/line-ripple";
-@use "@material/linear-progress";
-@use "@material/list";
-@use "@material/menu";
-@use "@material/menu-surface";
-@use "@material/notched-outline";
-@use "@material/radio";
-@use "@material/ripple";
-@use "@material/select/select";
-@use "@material/slider/slider";
-@use "@material/snackbar";
-@use "@material/switch";
-@use "@material/tab";
-@use "@material/tab-bar";
-@use "@material/tab-indicator";
-@use "@material/tab-scroller";
-@use "@material/textfield";
-@use "@material/theme/theme-color";
-// @use "@material/theme" as theme;
-@use "fix-theme" as theme;
-@use "@material/tooltip/tooltip";
-@use "fix-top-app-bar" as top-app-bar; // Top app bar does not have its own core-styles() so we apply a fix to work here.
-@use "@material/typography";
+@use '@material/floating-label';
+@use '@material/form-field';
+@use '@material/icon-button';
+@use '@material/image-list';
+// @use '@material/layout-grid'; // Layout grid has no core-styles(), and this is handled elsewhere.
+@use '@material/line-ripple';
+@use '@material/linear-progress';
+@use '@material/list';
+@use '@material/menu';
+@use '@material/menu-surface';
+@use '@material/notched-outline';
+@use '@material/radio';
+@use '@material/ripple';
+@use '@material/select/select';
+@use '@material/slider/slider';
+@use '@material/snackbar';
+@use '@material/switch';
+@use '@material/tab';
+@use '@material/tab-bar';
+@use '@material/tab-indicator';
+@use '@material/tab-scroller';
+@use '@material/textfield';
+@use '@material/theme/theme-color';
+// @use '@material/theme' as theme;
+@use 'fix-theme' as theme;
+@use '@material/tooltip/tooltip';
+@use 'fix-top-app-bar' as top-app-bar; // Top app bar does not have its own core-styles() so we apply a fix to work here.
+@use '@material/typography';
 
 @mixin styles(
     $query: feature-targeting.all()
@@ -101,10 +104,10 @@
     $surface,
     $error
 ) {
-    $on-primary:   if(theme-color.contrast-tone($primary) == "dark", c.$black, c.$white);
-    $on-secondary: if(theme-color.contrast-tone($secondary) == "dark", c.$black, c.$white);
-    $on-surface:   if(theme-color.contrast-tone($surface) == "dark", c.$black, c.$white);
-    $on-error:     if(theme-color.contrast-tone($error) == "dark", c.$black, c.$white);
+    $on-primary:   if(theme-color.contrast-tone($primary) == 'dark', c.$black, c.$white);
+    $on-secondary: if(theme-color.contrast-tone($secondary) == 'dark', c.$black, c.$white);
+    $on-surface:   if(theme-color.contrast-tone($surface) == 'dark', c.$black, c.$white);
+    $on-error:     if(theme-color.contrast-tone($error) == 'dark', c.$black, c.$white);
     $property-values: (
         primary:                      $primary,
         secondary:                    $secondary,

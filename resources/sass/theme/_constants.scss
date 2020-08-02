@@ -1,5 +1,5 @@
 @use 'sass:color';
-@use "@material/theme/color-palette" as cp;
+@use '@material/theme/color-palette' as cp;
 
 // 2014 Material Design palette colours were chosen here, but remember that
 // Material does not restrict this choice.
@@ -42,5 +42,5 @@ $surface-dark: $dark;
 
 // Theme fonts
 $font-alpha: (
-  font-family: unquote("Source Sans Pro, Roboto, sans-serif")
+  font-family: unquote('Source Sans Pro, Roboto, sans-serif')
 );

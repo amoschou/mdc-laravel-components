@@ -18,7 +18,7 @@ $error:      pre.$dark-saphire-crocoite-error;
 @use 'post';
 @use 'mixins';
 
-@use "@material/top-app-bar/mixins" as top-app-bar-mixins;
+@use '@material/top-app-bar/mixins' as top-app-bar-mixins;
 
 .theme-dark-saphire-crocoite.theme-level-1,
 .theme-dark-saphire-crocoite.theme-level-1.theme-level-2 {

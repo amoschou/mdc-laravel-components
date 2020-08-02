@@ -1,6 +1,6 @@
 @use 'pre';
 @use 'post';
 @use 'mixins';
-@use "@material/feature-targeting";
-@use "@material/layout-grid/mdc-layout-grid";
+@use '@material/feature-targeting';
+@use '@material/layout-grid/mdc-layout-grid';
 @include mixins.styles(feature-targeting.without(color));

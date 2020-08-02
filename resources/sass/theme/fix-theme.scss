@@ -1,4 +1,4 @@
-// Modified from /packages/mdc-theme/mdc-theme.scss
+// Content in this file is derived from @material/theme/_theme.scss (Google).
 
 //
 // Copyright 2017 Google Inc.
@@ -27,7 +27,7 @@
 
 @use 'sass:map';
 @use '@material/feature-targeting/feature-targeting';
-@use "@material/theme";
+@use '@material/theme';
 
 @mixin core-styles(
   $property-values,

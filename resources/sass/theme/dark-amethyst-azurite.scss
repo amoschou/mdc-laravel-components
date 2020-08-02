@@ -18,7 +18,7 @@ $error:      pre.$dark-amethyst-azurite-error;
 @use 'post';
 @use 'mixins';
 
-@use "@material/top-app-bar/mixins" as top-app-bar-mixins;
+@use '@material/top-app-bar/mixins' as top-app-bar-mixins;
 
 .theme-dark-amethyst-azurite.theme-level-1,
 .theme-dark-amethyst-azurite.theme-level-1.theme-level-2 {
