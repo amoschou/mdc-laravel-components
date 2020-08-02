@@ -15,13 +15,10 @@
         height: 100%;
     }
 
-    .app-bar {
+    #{{ str_replace(':', '\:', "top-app-bar::{$id}::root") }} {
         position: absolute;
-    }
-
-    @if($subType === 'below-top-app-bar')
-        #{{ str_replace(':', '\:', "top-app-bar::{$id}::root") }} {
+        @if($subType === 'below-top-app-bar')
             z-index: 7;
-        }
-    @endif
+        @endif
+    }
 @endif
