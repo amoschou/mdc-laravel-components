@@ -1,10 +1,10 @@
 @use 'pre';
 
-$primary:    pre.$saphire-azurite-primary;
-$secondary:  pre.$saphire-azurite-secondary;
-$background: pre.$saphire-azurite-background;
-$surface:    pre.$saphire-azurite-surface;
-$error:      pre.$saphire-azurite-error;
+$primary:    pre.$emerald-azurite-primary;
+$secondary:  pre.$emerald-azurite-secondary;
+$background: pre.$emerald-azurite-background;
+$surface:    pre.$emerald-azurite-surface;
+$error:      pre.$emerald-azurite-error;
 
 @use '@material/theme/theme-color' with (
     $primary:    $primary,
@@ -17,8 +17,8 @@ $error:      pre.$saphire-azurite-error;
 @use 'post';
 @use 'mixins';
 
-.theme-saphire-azurite.theme-level-1,
-.theme-saphire-azurite.theme-level-1.theme-level-2 {
+.theme-light-emerald-azurite.theme-level-1,
+.theme-light-emerald-azurite.theme-level-1.theme-level-2 {
     @include mixins.common-theme-work(
         $primary:    $primary,
         $secondary:  $secondary,

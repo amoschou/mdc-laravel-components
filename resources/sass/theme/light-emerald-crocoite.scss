@@ -1,10 +1,10 @@
 @use 'pre';
 
-$primary:    pre.$ruby-azurite-primary;
-$secondary:  pre.$ruby-azurite-secondary;
-$background: pre.$ruby-azurite-background;
-$surface:    pre.$ruby-azurite-surface;
-$error:      pre.$ruby-azurite-error;
+$primary:    pre.$emerald-crocoite-primary;
+$secondary:  pre.$emerald-crocoite-secondary;
+$background: pre.$emerald-crocoite-background;
+$surface:    pre.$emerald-crocoite-surface;
+$error:      pre.$emerald-crocoite-error;
 
 @use '@material/theme/theme-color' with (
     $primary:    $primary,
@@ -17,8 +17,8 @@ $error:      pre.$ruby-azurite-error;
 @use 'post';
 @use 'mixins';
 
-.theme-ruby-azurite.theme-level-1,
-.theme-ruby-azurite.theme-level-1.theme-level-2 {
+.theme-light-emerald-crocoite.theme-level-1,
+.theme-light-emerald-crocoite.theme-level-1.theme-level-2 {
     @include mixins.common-theme-work(
         $primary:    $primary,
         $secondary:  $secondary,

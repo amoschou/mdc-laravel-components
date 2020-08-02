@@ -20,9 +20,9 @@ class Theme
             'azurite',
             'crocoite'
         ],
-        'darkLight' => [
-            '',
-            'dark-'
+        'modes' => [
+            'light',
+            'dark'
         ]
     ];
 
@@ -36,7 +36,7 @@ class Theme
     }
 
     /**
-     * An object with primary and secondary attributes
+     * An object with primary, secondary and mode attributes
      *
      * @return object
      */
@@ -45,15 +45,17 @@ class Theme
 
         $secondary = self::getDesignPoints()['secondaries'][-1 + random_int(1,count(self::getDesignPoints()['secondaries']))];
 
-        return (object) compact('primary', 'secondary');
+        $mode = self::getDesignPoints()['modes'][-1 + random_int(1,count(self::getDesignPoints()['modes']))];
+
+        return (object) compact('primary', 'secondary', 'mode');
     }
 
     /**
-     * Returns the wrapper clss class given a theme, or null if the theme is not defined.
+     * Returns the wrapper clss class given a theme.
      *
-     * @return string|null
+     * @return string
      */
     public static function wrapperClass($theme) {
-        return is_null($theme) ? NULL : "theme-{$theme->primary}-{$theme->secondary}";
+        return "theme-{$theme->mode}-{$theme->primary}-{$theme->secondary}";
     }
 }

@@ -18,6 +18,8 @@ $error:      pre.$dark-saphire-crocoite-error;
 @use 'post';
 @use 'mixins';
 
+@use "@material/top-app-bar/mixins" as top-app-bar-mixins;
+
 .theme-dark-saphire-crocoite.theme-level-1,
 .theme-dark-saphire-crocoite.theme-level-1.theme-level-2 {
     @include mixins.common-theme-work(
@@ -30,5 +32,16 @@ $error:      pre.$dark-saphire-crocoite-error;
     
     .theme-branded-surface {
         background-color: color.mix($primary, pre.$surface-dark, 8%);
+    }
+
+    .mdc-top-app-bar {
+        @include top-app-bar-mixins.fill-color-accessible(
+            color.mix($primary, pre.$surface-dark, 8%)
+        );
+        @include top-app-bar-mixins.icon-ink-color(
+            theme-color.accessible-ink-color(
+                color.mix($primary, pre.$surface-dark, 8%)
+            )
+        );
     }
 }

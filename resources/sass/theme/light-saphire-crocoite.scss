@@ -1,10 +1,10 @@
 @use 'pre';
 
-$primary:    pre.$ruby-crocoite-primary;
-$secondary:  pre.$ruby-crocoite-secondary;
-$background: pre.$ruby-crocoite-background;
-$surface:    pre.$ruby-crocoite-surface;
-$error:      pre.$ruby-crocoite-error;
+$primary:    pre.$saphire-crocoite-primary;
+$secondary:  pre.$saphire-crocoite-secondary;
+$background: pre.$saphire-crocoite-background;
+$surface:    pre.$saphire-crocoite-surface;
+$error:      pre.$saphire-crocoite-error;
 
 @use '@material/theme/theme-color' with (
     $primary:    $primary,
@@ -17,8 +17,8 @@ $error:      pre.$ruby-crocoite-error;
 @use 'post';
 @use 'mixins';
 
-.theme-ruby-crocoite.theme-level-1,
-.theme-ruby-crocoite.theme-level-1.theme-level-2 {
+.theme-light-saphire-crocoite.theme-level-1,
+.theme-light-saphire-crocoite.theme-level-1.theme-level-2 {
     @include mixins.common-theme-work(
         $primary:    $primary,
         $secondary:  $secondary,

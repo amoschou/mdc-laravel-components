@@ -34,30 +34,37 @@ const designPoints = {
         'azurite',
         'crocoite'
     ],
-    darkLight: [
-        '',
-        'dark-'
+    modes: [
+        'light',
+        'dark'
     ]
 };
 
-const entries = [
-    'mdc',
-    'theme/base-with-colour',
-    'theme/base-without-colour',
-    'theme/baseline-dark',
-    'theme/baseline-default'
-];
+entires = {
+    sass: [
+        'mdc',
+        'theme/base-with-colour',
+        'theme/base-without-colour',
+        'theme/baseline-dark',
+        'theme/baseline-default'
+    ],
+    js: [
+        'mdc'
+    ]
+};
 
 designPoints.primaries.forEach(primary => {
     designPoints.secondaries.forEach(secondary => {
-        designPoints.darkLight.forEach(darkLight => {
-            mix.sass('resources/sass/theme/'+darkLight+primary+'-'+secondary+'.scss', 'public/css', mdcOptions);
+        designPoints.modes.forEach(mode => {
+            mix.sass('resources/sass/theme/' + mode + '-' + primary + '-' + secondary + '.scss', 'public/css', mdcOptions);
         });
     });
 });
 
-entries.forEach(entry => {
-    mix.sass('resources/sass/'+entry+'.scss', 'public/css', mdcOptions);
-});
+entires.sass.forEach(entry => {
+    mix.sass('resources/sass/' + entry + '.scss', 'public/css', mdcOptions);
+})
 
-mix.js('resources/js/mdc.js', 'public/js').sourceMaps();
+entires.js.forEach(entry => {
+    mix.js('resources/js/' + entry + '.js', 'public/css', mdcOptions);
+})

@@ -1,10 +1,10 @@
 @use 'pre';
 
-$primary:    pre.$saphire-crocoite-primary;
-$secondary:  pre.$saphire-crocoite-secondary;
-$background: pre.$saphire-crocoite-background;
-$surface:    pre.$saphire-crocoite-surface;
-$error:      pre.$saphire-crocoite-error;
+$primary:    pre.$amethyst-azurite-primary;
+$secondary:  pre.$amethyst-azurite-secondary;
+$background: pre.$amethyst-azurite-background;
+$surface:    pre.$amethyst-azurite-surface;
+$error:      pre.$amethyst-azurite-error;
 
 @use '@material/theme/theme-color' with (
     $primary:    $primary,
@@ -13,12 +13,13 @@ $error:      pre.$saphire-crocoite-error;
     $surface:    $surface,
     $error:      $error,
 );
+@use '@material/theme';
 
 @use 'post';
 @use 'mixins';
 
-.theme-saphire-crocoite.theme-level-1,
-.theme-saphire-crocoite.theme-level-1.theme-level-2 {
+.theme-light-amethyst-azurite.theme-level-1,
+.theme-light-amethyst-azurite.theme-level-1.theme-level-2 {
     @include mixins.common-theme-work(
         $primary:    $primary,
         $secondary:  $secondary,

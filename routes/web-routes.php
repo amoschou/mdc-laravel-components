@@ -22,7 +22,7 @@ Route::get('/demo/{demo}', function ($demo) {
     $themeWrapperClass = Theme::wrapperClass($theme);
 
     $context = [
-        'component' => $demo !== 'all' ? $demo : [
+        'component' => $demo !== 'theme' ? $demo : [
             'button',
             'checkbox',
             'typography'
@@ -31,7 +31,7 @@ Route::get('/demo/{demo}', function ($demo) {
         'themeWrapperClass' => $themeWrapperClass
     ];
 
-    return view($demo !== 'all' ? 'demos.index' : 'demos.all', $context);
+    return view($demo !== 'theme' ? 'demos.index' : 'demos.theme', $context);
 });
 
 Route::get('/css/components/combo/{id}/style.css', function($id = null, Illuminate\Http\Request $request) {

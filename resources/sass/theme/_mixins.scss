@@ -23,36 +23,35 @@
     @include form-field.core-styles($query);
     @include icon-button.core-styles($query);
     @include list.core-styles($query);
-    @include theme.core-styles($query);
     @include top-app-bar.core-styles($query);
     @include typography.core-styles($query);
 }
 
-// Adapted from core-styles() of /packages/mdc-theme/_theme.scss by removing
-// the :root {} wrapper
+// Adapted from core-styles() of /packages/mdc-theme/_theme.scss by using
+// SASS’s parent selector (&).
 @mixin theme-core-styles(
     $property-values,
     $query: feature-targeting.all()
 ) {
     $feat-color: feature-targeting.create-target($query, color);
 
-    // :root {
+    & {
         @include feature-targeting.targets($feat-color) {
             @each $style in map.keys($property-values) {
                 --mdc-theme-#{$style}: #{map.get($property-values, $style)};
             }
         }
-    // }
+    }
   
     @each $style in map.keys($property-values) {
         @if $style != "background" and $style != "surface" {
-            .mdc-theme--#{$style} {
+            &.mdc-theme--#{$style} {
                 @include feature-targeting.targets($feat-color) {
                     @include theme.prop(color, $style, true);
                 }
             }
         } @else {
-            .mdc-theme--#{$style} {
+            &.mdc-theme--#{$style} {
                 @include feature-targeting.targets($feat-color) {
                     @include theme.prop(background-color, $style);
                 }
@@ -62,7 +61,7 @@
   
     // CSS rules for using primary and secondary (plus light/dark variants) as background colors.
     @each $style in ("primary", "secondary") {
-        .mdc-theme--#{$style}-bg {
+        &.mdc-theme--#{$style}-bg {
             @include feature-targeting.targets($feat-color) {
                 @include theme.prop(background-color, $style, true);
             }
@@ -92,21 +91,21 @@
         on-secondary:                 $on-secondary,
         on-surface:                   $on-surface,
         on-error:                     $on-error,
-        text-primary-on-background:   ink-color-for-fill_(primary, $background),
-        text-secondary-on-background: ink-color-for-fill_(secondary, $background),
-        text-hint-on-background:      ink-color-for-fill_(hint, $background),
-        text-disabled-on-background:  ink-color-for-fill_(disabled, $background),
-        text-icon-on-background:      ink-color-for-fill_(icon, $background),
-        text-primary-on-light:        ink-color-for-fill_(primary, light),
-        text-secondary-on-light:      ink-color-for-fill_(secondary, light),
-        text-hint-on-light:           ink-color-for-fill_(hint, light),
-        text-disabled-on-light:       ink-color-for-fill_(disabled, light),
-        text-icon-on-light:           ink-color-for-fill_(icon, light),
-        text-primary-on-dark:         ink-color-for-fill_(primary, dark),
-        text-secondary-on-dark:       ink-color-for-fill_(secondary, dark),
-        text-hint-on-dark:            ink-color-for-fill_(hint, dark),
-        text-disabled-on-dark:        ink-color-for-fill_(disabled, dark),
-        text-icon-on-dark:            ink-color-for-fill_(icon, dark)
+        text-primary-on-background:   theme-color.ink-color-for-fill_(primary, $background),
+        text-secondary-on-background: theme-color.ink-color-for-fill_(secondary, $background),
+        text-hint-on-background:      theme-color.ink-color-for-fill_(hint, $background),
+        text-disabled-on-background:  theme-color.ink-color-for-fill_(disabled, $background),
+        text-icon-on-background:      theme-color.ink-color-for-fill_(icon, $background),
+        text-primary-on-light:        theme-color.ink-color-for-fill_(primary, light),
+        text-secondary-on-light:      theme-color.ink-color-for-fill_(secondary, light),
+        text-hint-on-light:           theme-color.ink-color-for-fill_(hint, light),
+        text-disabled-on-light:       theme-color.ink-color-for-fill_(disabled, light),
+        text-icon-on-light:           theme-color.ink-color-for-fill_(icon, light),
+        text-primary-on-dark:         theme-color.ink-color-for-fill_(primary, dark),
+        text-secondary-on-dark:       theme-color.ink-color-for-fill_(secondary, dark),
+        text-hint-on-dark:            theme-color.ink-color-for-fill_(hint, dark),
+        text-disabled-on-dark:        theme-color.ink-color-for-fill_(disabled, dark),
+        text-icon-on-dark:            theme-color.ink-color-for-fill_(icon, dark)
     );
 
     @include theme-core-styles($property-values);

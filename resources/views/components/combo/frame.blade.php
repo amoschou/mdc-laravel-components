@@ -35,7 +35,7 @@
   @include('components.app.drawer', $frameContext)
   <div class="mdc-drawer-app-content"> {{-- .mdc-drawer-app-content must be applied to the sibling after the drawer --}}
     {{-- <div class="{{ $themeWrapperClass }}"> --}}
-      @include('components.app.top-app-bar', array_merge($frameContext, ['class' => 'app-bar']))
+      @include('components.app.top-app-bar', $frameContext)
     {{-- </div> --}}
     <main class="main-content" id="frame::{{ $id }}::main">
       <div class="{{ $classFixedAdjust }}">
@@ -55,7 +55,7 @@
 @endif
 
 @if($type === 'dismissible' && $subType === 'below-top-app-bar')
-  @include('components.app.top-app-bar', array_merge($frameContext, ['class' => 'app-bar']))
+  @include('components.app.top-app-bar', $frameContext)
   @include('components.app.drawer', array_merge($frameContext, ['class' => $classFixedAdjust]))
   <div class="mdc-drawer-app-content {{ $classFixedAdjust }}">
     <main class="main-content" id="frame::{{ $id }}::main">
